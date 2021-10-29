@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./scripts/vue.js" ></script>
+
+</head>
+<body>
+    <div id = "root">
+        <h2>ttt{{name}}</h2>
+        <a href="http:www.baidu.com" @click.prevent = "showInfo2(66,$event)">点击</a>
+        <button @click = "showInfo2(66,$event)">点我显示</button>
+    </div>
+
+    <script>
+        const vm = new Vue({
+            el:"#root",
+            data:{
+                name:'test'
+            },
+            methods:{
+                showInfo(){
+                    alert('tttt')
+                },
+                showInfo2(e,event){
+                    alert(e)
+                }
+            }
+        })
+    </script>
+</body>
+</html>

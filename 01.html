@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./scripts/vue.js" ></script>
+</head>
+<body>
+    <div id="root">
+        <h1>hello,world;{{name}}</h1>
+        <h1>sss{{aaa}}</h1>
+        <hr/>
+
+        <h1>指令语法</h1>
+        <a :href="Date.now()">smg</a>
+    </div>
+</body>
+<script>
+    const vm = new Vue({
+        el:'#root',
+        data:function(){
+            return{
+                name:"test",
+                aaa:"test"
+            }
+        }
+    })
+    console.log(vm)
+    setTimeout(() =>{
+        vm.$mount('#root')
+    },1000)
+    let persion = {
+        name:'zhan',
+        sex:'nan'
+    }
+    Object.defineProperty(persion,'age',{value:18,enumerable:true})
+</script>
+</html>
