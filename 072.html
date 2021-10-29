@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./scripts/vue.js" ></script>
+
+</head>
+<body>
+    <div id = "root">
+        <h2>今天天气很{{hot}}</h2>
+        <button @click = "updateinfo">点我修改</button>
+        <hr>
+        <h3>numbers.a 的值是{{numbers.a}}</h3>
+        <button @click = "numbers.a++">使得a++</button>
+        <h3>numbers.b 的值是{{numbers.b}}</h3>
+        <button @click = "numbers.b++">使得b++</button>
+    </div>
+
+    <script>
+        const vm = new Vue({
+            el:"#root",
+            data:{
+                isHot: true,
+                numbers:{
+                    a:1,
+                    b:2
+                }
+            },
+            computed:{
+                hot(){
+                    return this.isHot?'炎热':'凉爽'
+                }
+            },
+            methods:{
+                updateinfo(){
+                    this.isHot = !this.isHot
+                }
+            },
+            watch:{
+                isHot:{
+                    handler(nv,ov){
+                        console.log(nv + ov)
+                    }
+                },
+                'numbers':{
+                    deep:true,
+                    handler(nv,ov){
+                        console.log("a改变")
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>
