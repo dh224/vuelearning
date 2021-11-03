@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./scripts/vue.js" ></script>
+
+</head>
+<body>
+    <div id = "root">
+        <hr>
+        <h3>当前的n值为:{{n}}</h3>
+        <button @click = "n++"  >点我n自增</button>
+        <hr>
+        <div v-if="n <=10" >a</div>
+        <div v-if="n <=20">b</div>
+        <div v-if="n<=30">c</div>
+    </div>
+
+    <script>
+        const vm = new Vue({
+            el:"#root",
+            data:{
+                n:10,
+                firstname:'ss',
+            },
+            watch:{
+                firstname(newValue){
+                    this.fullname = newValue + "-" + this.lastname
+                },
+                lastname(nv){
+                    this.fullname = this.firstname + "-" + nv
+                }
+            }
+        })
+    </script>
+</body>
